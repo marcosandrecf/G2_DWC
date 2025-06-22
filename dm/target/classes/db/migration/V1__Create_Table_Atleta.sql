@@ -1,5 +1,5 @@
-CREATE TABLE atleta(
-    id CHAR(32) NOT NULL PRIMARY KEY,
+CREATE TABLE atleta (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     descricao_lesao VARCHAR(255) NOT NULL,
     situacao VARCHAR(255) NOT NULL,

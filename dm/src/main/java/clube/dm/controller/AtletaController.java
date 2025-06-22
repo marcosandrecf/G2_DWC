@@ -23,8 +23,6 @@ public class AtletaController {
         this.atletaService = atletaService;
     }
 
-    //CRUD
-
     @PostMapping //ENDPOINT CADASTRO
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Cadastrar Atleta")

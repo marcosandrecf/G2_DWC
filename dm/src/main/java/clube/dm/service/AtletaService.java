@@ -2,7 +2,9 @@ package clube.dm.service;
 
 import clube.dm.dto.*;
 import clube.dm.entity.Atleta;
+import clube.dm.entity.Preparador;
 import clube.dm.repository.AtletaRepository;
+import clube.dm.repository.PreparadorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,17 +13,23 @@ import java.util.List;
 public class AtletaService {
 
     private final AtletaRepository atletaRepository;
+    private final PreparadorRepository preparadorRepository;
 
-    public AtletaService(AtletaRepository atletaRepository){
+    public AtletaService(AtletaRepository atletaRepository, PreparadorRepository preparadorRepository) {
         this.atletaRepository = atletaRepository;
+        this.preparadorRepository = preparadorRepository;
     }
 
     public CadastrarAtletaOutputDTO cadastrar(CadastrarAtletaInputDTO input) {
+        Preparador preparador = preparadorRepository.findById(input.idPreparador())
+                .orElseThrow(() -> new RuntimeException("Preparador não encontrado"));
+
         Atleta atleta = Atleta.novoAtleta(
                 input.nome(),
                 input.descricaoLesao(),
                 input.situacao(),
-                input.camisa()
+                input.camisa(),
+                preparador
         );
 
         final var atletaSalvo = atletaRepository.save(atleta);
@@ -60,4 +68,3 @@ public class AtletaService {
         atletaRepository.deleteById(id);
     }
 }
-

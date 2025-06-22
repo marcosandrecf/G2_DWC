@@ -4,5 +4,6 @@ public record CadastrarAtletaInputDTO(
         String nome,
         String descricaoLesao,
         String situacao,
-        int camisa
+        int camisa,
+        String idPreparador
 ) {}
