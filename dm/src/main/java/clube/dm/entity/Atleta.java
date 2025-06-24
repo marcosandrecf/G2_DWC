@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+@Getter
 @Entity(name = "Atleta")
 @Table(name = "atleta")
 public class Atleta {
