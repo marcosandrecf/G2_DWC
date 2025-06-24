@@ -3,11 +3,12 @@ package clube.dm.dto;
 import clube.dm.entity.Atleta;
 
 public record PesquisarAtletaOutputDTO(
-   String id,
-   String nome,
-   String descricaoLesao,
-   String situacao,
-   int numCamisa
+        String id,
+        String nome,
+        String descricaoLesao,
+        String situacao,
+        int numCamisa,
+        String nomePreparador // <- novo campo
 ) {
 
     public static PesquisarAtletaOutputDTO output(Atleta atleta) {
@@ -16,7 +17,8 @@ public record PesquisarAtletaOutputDTO(
                 atleta.getNome(),
                 atleta.getDescricaoLesao(),
                 atleta.getSituacao(),
-                atleta.getNumCamisa()
+                atleta.getNumCamisa(),
+                atleta.getPreparador() != null ? atleta.getPreparador().getNome() : null
         );
     }
 }
