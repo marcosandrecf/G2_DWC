@@ -3,11 +3,14 @@ package clube.dm.entity;
 import clube.dm.util.IdUtil;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity(name = "Preparador")
 @Table(name = "preparador")
 public class Preparador implements Serializable {
