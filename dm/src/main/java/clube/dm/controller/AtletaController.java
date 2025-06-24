@@ -81,6 +81,7 @@ public class AtletaController {
         atletaService.deletar(id);
         return ResponseEntity.noContent().build();
     }
+
     @PatchMapping("/{id}/preparador")
     @Operation(summary = "Trocar Preparador do Atleta")
     @ApiResponse(responseCode = "200", description = "Preparador trocado com sucesso")

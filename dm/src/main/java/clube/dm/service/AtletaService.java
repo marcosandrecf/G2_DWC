@@ -64,9 +64,12 @@ public class AtletaService {
                 .toList();
     }
 
-    
+    public void deletar(String id) {
+        atletaRepository.deleteById(id);
+    }
+
     public void trocarPreparador(String idAtleta, TrocarPreparadorDTO dto) {
-        Atleta atleta = atletaRepository.findById(Integer.valueOf(idAtleta))
+        Atleta atleta = atletaRepository.findById(idAtleta)
                 .orElseThrow(() -> new RuntimeException("Atleta não encontrado"));
 
         Preparador novoPreparador = preparadorRepository.findById(dto.idPreparador())
@@ -75,8 +78,5 @@ public class AtletaService {
         atleta.setPreparador(novoPreparador);
         atletaRepository.save(atleta);
     }
-
-    public void deletar(String id) {
-        atletaRepository.deleteById(id);
-    }
 }
+

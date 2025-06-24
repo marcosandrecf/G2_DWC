@@ -52,12 +52,13 @@ public class PreparadorService {
     }
 
     public void deletar(String id) {
-    var preparador = preparadorRepository.findById(id)
-    .orElseThrow(() -> new RuntimeException("Preparador não encontrado"));
+        var preparador = preparadorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Preparador não encontrado"));
 
-    if (preparador.getAtletas() != null && !preparador.getAtletas().isEmpty()) {
-        throw new IllegalStateException("Não é possível deletar um preparador com atletas vinculados.");
-    }
-    preparadorRepository.deleteById(id);
+        if (preparador.getAtletas() != null && !preparador.getAtletas().isEmpty()) {
+            throw new IllegalStateException("Não é possível deletar um preparador com atletas vinculados.");
+        }
+
+        preparadorRepository.deleteById(id);
     }
 }

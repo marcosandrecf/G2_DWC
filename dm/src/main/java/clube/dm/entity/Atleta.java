@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
-@Getter
 @Entity(name = "Atleta")
 @Table(name = "atleta")
 public class Atleta {
@@ -66,7 +65,7 @@ public class Atleta {
     }
 
     public void setPreparador(Preparador preparador) {
-    this.preparador = preparador;
+        this.preparador = preparador;
     }
 
 
