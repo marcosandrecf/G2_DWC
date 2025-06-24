@@ -90,9 +90,9 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>11.9.1</version>
 				<configuration>
-					<url>jdbc:postgresql://localhost:5432/dm</url>
-					<user>postgres</user>
-					<password>postgres</password>
+					<url>${env.DATABASE_URL}</url>
+					<user>${env.JDBC_DATABASE_USERNAME}</user>
+					<password>${env.JDBC_DATABASE_PASSWORD}</password>
 					<cleanDisabled>false</cleanDisabled>
 					<schemas>
 						<schema>public</schema>
