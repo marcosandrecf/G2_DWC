@@ -1,4 +1,4 @@
-package clube.cm.dto
+package clube.dm.dto
 
 public record TrocarPreparadorDTO(
   String idAtleta,
