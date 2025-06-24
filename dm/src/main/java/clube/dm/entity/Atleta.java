@@ -64,5 +64,9 @@ public class Atleta {
         return this;
     }
 
+    public void setPreparador(Preparador preparador) {
+    this.preparador = preparador;
+    }
+
 
 }
